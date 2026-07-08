@@ -56,16 +56,22 @@ AI Auto BD Starter Kit 提供：
 ├── docs/
 │   ├── compliance-notes.md
 │   ├── google-sheet-schema.md
-│   └── outreach-playbook.md
+│   ├── outreach-playbook.md
+│   └── private-adaptation-checklist.md
 ├── examples/
 │   ├── sample-leads.csv
 │   └── sample-project.config.yaml
+├── schemas/
+│   ├── leads.schema.json
+│   └── project-config.schema.json
 ├── scripts/
 │   ├── lib/
 │   ├── lead-score.mjs
 │   ├── outreach-dry-run.mjs
 │   ├── project-validate.mjs
 │   └── report-weekly.mjs
+├── tests/
+├── AGENTS.md
 ├── .env.example
 ├── .gitignore
 ├── LICENSE
@@ -77,6 +83,7 @@ AI Auto BD Starter Kit 提供：
 
 ```bash
 npm install
+npm test
 npm run project:validate
 npm run lead:score
 npm run outreach:dry-run
@@ -84,6 +91,29 @@ npm run report:weekly
 ```
 
 所有 scripts 都只使用本地 sample files，不呼叫外部 API。
+
+## CLI 路徑覆寫
+
+預設命令會使用 `examples/sample-project.config.yaml` 與 `examples/sample-leads.csv`。本地改造時，可以不改 source code，直接指定其他檔案：
+
+```bash
+npm run project:validate -- --config path/to/project.config.yaml
+npm run lead:score -- --config path/to/project.config.yaml --leads path/to/leads.csv
+npm run outreach:dry-run -- --config path/to/project.config.yaml --leads path/to/leads.csv
+npm run report:weekly -- --config path/to/project.config.yaml --leads path/to/leads.csv
+```
+
+也支援環境變數：
+
+```bash
+PROJECT_CONFIG=path/to/project.config.yaml LEADS_CSV=path/to/leads.csv npm run lead:score
+```
+
+## AI Agent Onboarding
+
+AI agent 應先閱讀 [`AGENTS.md`](AGENTS.md)。該文件列出 repo 目的、安全邊界、重要檔案、驗證命令，以及避免把 secrets 或私有專案識別資訊加入公開 starter kit 的規則。
+
+Machine-readable planning references 位於 `schemas/`。改造成私有 implementation 前，請先檢查 `docs/private-adaptation-checklist.md`。
 
 ## 範例 Project Config
 

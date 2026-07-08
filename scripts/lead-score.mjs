@@ -1,17 +1,22 @@
 #!/usr/bin/env node
 
-import { loadProjectConfig } from "./lib/config.mjs";
+import { loadProjectConfig, defaultConfigPath } from "./lib/config.mjs";
 import { loadCsvRows, defaultLeadsPath } from "./lib/csv.mjs";
 import { scoreLeads, summarizeScores } from "./lib/scoring.mjs";
 import { pad, printHeader, printSection } from "./lib/console.mjs";
+import { resolveCliPaths } from "./lib/args.mjs";
 
-const config = await loadProjectConfig();
-const leads = await loadCsvRows();
+const paths = resolveCliPaths();
+const configPath = paths.configPath ?? defaultConfigPath;
+const leadsPath = paths.leadsPath ?? defaultLeadsPath;
+const config = await loadProjectConfig(configPath);
+const leads = await loadCsvRows(leadsPath);
 const scoredLeads = scoreLeads(config, leads);
 const summary = summarizeScores(scoredLeads);
 
 printHeader("Lead Scoring Report");
-console.log(`Leads: ${defaultLeadsPath}`);
+console.log(`Config: ${configPath}`);
+console.log(`Leads: ${leadsPath}`);
 console.log("Mode: local scoring only; no external APIs; no email sent.");
 
 printSection("Summary");

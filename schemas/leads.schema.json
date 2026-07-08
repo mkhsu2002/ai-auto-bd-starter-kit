@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/leads.schema.json",
+  "title": "AI Auto BD Starter Kit Lead Row",
+  "type": "object",
+  "required": [
+    "lead_id",
+    "business_name",
+    "industry",
+    "region",
+    "website_url",
+    "public_email",
+    "weak_website",
+    "local_service_business",
+    "chain_store",
+    "excluded_industry",
+    "no_public_contact",
+    "notes"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "lead_id": { "type": "string", "minLength": 1 },
+    "business_name": { "type": "string", "minLength": 1 },
+    "industry": { "type": "string" },
+    "region": { "type": "string" },
+    "website_url": { "type": "string" },
+    "public_email": { "type": "string" },
+    "weak_website": { "$ref": "#/$defs/booleanLike" },
+    "local_service_business": { "$ref": "#/$defs/booleanLike" },
+    "chain_store": { "$ref": "#/$defs/booleanLike" },
+    "excluded_industry": { "$ref": "#/$defs/booleanLike" },
+    "no_public_contact": { "$ref": "#/$defs/booleanLike" },
+    "notes": { "type": "string" }
+  },
+  "$defs": {
+    "booleanLike": {
+      "type": "string",
+      "enum": ["yes", "no", "true", "false", "1", "0", "y", "n", ""]
+    }
+  }
+}

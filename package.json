@@ -1,6 +1,6 @@
 {
   "name": "flypig-ai-auto-bd-starter-kit",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "A lightweight, config-driven starter framework for building trackable outbound business development workflows.",
   "type": "module",
   "private": false,
@@ -8,7 +8,8 @@
     "project:validate": "node scripts/project-validate.mjs",
     "lead:score": "node scripts/lead-score.mjs",
     "outreach:dry-run": "node scripts/outreach-dry-run.mjs",
-    "report:weekly": "node scripts/report-weekly.mjs"
+    "report:weekly": "node scripts/report-weekly.mjs",
+    "test": "node --test"
   },
   "dependencies": {
     "yaml": "^2.8.1"

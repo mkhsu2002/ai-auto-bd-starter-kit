@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/project-config.schema.json",
+  "title": "AI Auto BD Starter Kit Project Config",
+  "type": "object",
+  "required": ["project", "brand", "market", "offer", "target_segments", "lead_scoring", "outreach_sequence"],
+  "additionalProperties": false,
+  "properties": {
+    "project": {
+      "type": "object",
+      "required": ["name", "slug", "owner_name", "owner_email"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "slug": { "type": "string", "minLength": 1 },
+        "owner_name": { "type": "string", "minLength": 1 },
+        "owner_email": { "type": "string", "format": "email" }
+      }
+    },
+    "brand": {
+      "type": "object",
+      "required": ["name", "website_url", "service_name", "cta_url"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "website_url": { "type": "string", "format": "uri" },
+        "service_name": { "type": "string", "minLength": 1 },
+        "cta_url": { "type": "string", "format": "uri" }
+      }
+    },
+    "market": {
+      "type": "object",
+      "required": ["country", "regions", "timezone", "language", "currency"],
+      "additionalProperties": false,
+      "properties": {
+        "country": { "type": "string", "minLength": 1 },
+        "regions": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+        "timezone": { "type": "string", "minLength": 1 },
+        "language": { "type": "string", "minLength": 1 },
+        "currency": { "type": "string", "minLength": 1 }
+      }
+    },
+    "offer": {
+      "type": "object",
+      "required": ["primary_offer", "value_proposition", "call_to_action"],
+      "additionalProperties": false,
+      "properties": {
+        "primary_offer": { "type": "string", "minLength": 1 },
+        "value_proposition": { "type": "string", "minLength": 1 },
+        "call_to_action": { "type": "string", "minLength": 1 }
+      }
+    },
+    "target_segments": {
+      "type": "object",
+      "required": ["priority_industries", "excluded_industries"],
+      "additionalProperties": false,
+      "properties": {
+        "priority_industries": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "excluded_industries": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "lead_scoring": {
+      "type": "object",
+      "required": ["rules", "thresholds"],
+      "additionalProperties": false,
+      "properties": {
+        "rules": { "type": "object", "additionalProperties": { "type": "number" } },
+        "thresholds": {
+          "type": "object",
+          "required": ["ready_to_review", "hold"],
+          "additionalProperties": false,
+          "properties": {
+            "ready_to_review": { "type": "number" },
+            "hold": { "type": "number" }
+          }
+        }
+      }
+    },
+    "outreach_sequence": {
+      "type": "object",
+      "required": ["steps", "stop_on"],
+      "additionalProperties": false,
+      "properties": {
+        "steps": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["step", "delay_days", "template"],
+            "additionalProperties": false,
+            "properties": {
+              "step": { "type": "string", "minLength": 1 },
+              "delay_days": { "type": "number", "minimum": 0 },
+              "template": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "stop_on": {
+          "type": "array",
+          "items": { "enum": ["reply", "bounce", "unsubscribe", "manual_stop"] },
+          "contains": { "const": "reply" }
+        }
+      }
+    }
+  }
+}

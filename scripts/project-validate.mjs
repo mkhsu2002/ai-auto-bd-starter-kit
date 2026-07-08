@@ -2,12 +2,15 @@
 
 import { loadProjectConfig, validateProjectConfig, defaultConfigPath } from "./lib/config.mjs";
 import { printHeader, printList, printSection } from "./lib/console.mjs";
+import { resolveCliPaths } from "./lib/args.mjs";
 
-const config = await loadProjectConfig();
+const paths = resolveCliPaths();
+const configPath = paths.configPath ?? defaultConfigPath;
+const config = await loadProjectConfig(configPath);
 const result = validateProjectConfig(config);
 
 printHeader("Project Config Validation");
-console.log(`Config: ${defaultConfigPath}`);
+console.log(`Config: ${configPath}`);
 
 if (result.ok) {
   console.log("\nPASS: config validation passed.");

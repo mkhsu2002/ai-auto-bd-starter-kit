@@ -1,18 +1,24 @@
 #!/usr/bin/env node
 
-import { loadProjectConfig } from "./lib/config.mjs";
-import { loadCsvRows } from "./lib/csv.mjs";
+import { loadProjectConfig, defaultConfigPath } from "./lib/config.mjs";
+import { loadCsvRows, defaultLeadsPath } from "./lib/csv.mjs";
 import { scoreLeads } from "./lib/scoring.mjs";
 import { printHeader, printSection } from "./lib/console.mjs";
+import { resolveCliPaths } from "./lib/args.mjs";
 
-const config = await loadProjectConfig();
-const leads = await loadCsvRows();
+const paths = resolveCliPaths();
+const configPath = paths.configPath ?? defaultConfigPath;
+const leadsPath = paths.leadsPath ?? defaultLeadsPath;
+const config = await loadProjectConfig(configPath);
+const leads = await loadCsvRows(leadsPath);
 const scoredLeads = scoreLeads(config, leads);
 const reviewableLeads = scoredLeads.filter((lead) => lead.review_status === "ready_to_review");
 
 printHeader("Outreach Dry Run");
 console.log("DRY RUN ONLY: no email was sent, no API was called, and no Google Sheet was updated.");
 console.log(`Project: ${config.project.name}`);
+console.log(`Config: ${configPath}`);
+console.log(`Leads: ${leadsPath}`);
 console.log(`Offer: ${config.offer.primary_offer}`);
 
 for (const step of config.outreach_sequence.steps) {

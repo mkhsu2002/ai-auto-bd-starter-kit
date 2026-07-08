@@ -56,16 +56,22 @@ This starter kit is useful for:
 ├── docs/
 │   ├── compliance-notes.md
 │   ├── google-sheet-schema.md
-│   └── outreach-playbook.md
+│   ├── outreach-playbook.md
+│   └── private-adaptation-checklist.md
 ├── examples/
 │   ├── sample-leads.csv
 │   └── sample-project.config.yaml
+├── schemas/
+│   ├── leads.schema.json
+│   └── project-config.schema.json
 ├── scripts/
 │   ├── lib/
 │   ├── lead-score.mjs
 │   ├── outreach-dry-run.mjs
 │   ├── project-validate.mjs
 │   └── report-weekly.mjs
+├── tests/
+├── AGENTS.md
 ├── .env.example
 ├── .gitignore
 ├── LICENSE
@@ -77,6 +83,7 @@ This starter kit is useful for:
 
 ```bash
 npm install
+npm test
 npm run project:validate
 npm run lead:score
 npm run outreach:dry-run
@@ -84,6 +91,29 @@ npm run report:weekly
 ```
 
 All scripts use local sample files and do not call external APIs.
+
+## CLI Path Overrides
+
+The default commands use `examples/sample-project.config.yaml` and `examples/sample-leads.csv`. For local adaptation, pass alternate files without changing source code:
+
+```bash
+npm run project:validate -- --config path/to/project.config.yaml
+npm run lead:score -- --config path/to/project.config.yaml --leads path/to/leads.csv
+npm run outreach:dry-run -- --config path/to/project.config.yaml --leads path/to/leads.csv
+npm run report:weekly -- --config path/to/project.config.yaml --leads path/to/leads.csv
+```
+
+Environment variables are also supported:
+
+```bash
+PROJECT_CONFIG=path/to/project.config.yaml LEADS_CSV=path/to/leads.csv npm run lead:score
+```
+
+## Agent Onboarding
+
+AI agents should start with [`AGENTS.md`](AGENTS.md). It lists the repository mission, safety boundaries, important files, verification commands, and rules for avoiding secrets or private project identifiers in this public starter kit.
+
+Machine-readable planning references live in `schemas/`. Before adapting this into a private implementation, review `docs/private-adaptation-checklist.md`.
 
 ## Example Project Config
 

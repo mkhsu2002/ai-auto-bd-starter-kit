@@ -1,12 +1,16 @@
 #!/usr/bin/env node
 
-import { loadProjectConfig } from "./lib/config.mjs";
-import { loadCsvRows } from "./lib/csv.mjs";
+import { loadProjectConfig, defaultConfigPath } from "./lib/config.mjs";
+import { loadCsvRows, defaultLeadsPath } from "./lib/csv.mjs";
 import { scoreLeads, summarizeScores } from "./lib/scoring.mjs";
 import { printHeader, printList, printSection } from "./lib/console.mjs";
+import { resolveCliPaths } from "./lib/args.mjs";
 
-const config = await loadProjectConfig();
-const leads = await loadCsvRows();
+const paths = resolveCliPaths();
+const configPath = paths.configPath ?? defaultConfigPath;
+const leadsPath = paths.leadsPath ?? defaultLeadsPath;
+const config = await loadProjectConfig(configPath);
+const leads = await loadCsvRows(leadsPath);
 const scoredLeads = scoreLeads(config, leads);
 const summary = summarizeScores(scoredLeads);
 const readyLeads = scoredLeads.filter((lead) => lead.review_status === "ready_to_review");
@@ -14,6 +18,8 @@ const holdLeads = scoredLeads.filter((lead) => lead.review_status === "hold");
 
 printHeader("Mock Weekly BD Report");
 console.log(`Project: ${config.project.name}`);
+console.log(`Config: ${configPath}`);
+console.log(`Leads: ${leadsPath}`);
 console.log("Report type: mock local report; no external APIs; no email sent.");
 
 printSection("Lead Pool");
