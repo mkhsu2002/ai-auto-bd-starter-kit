@@ -1,4 +1,4 @@
-# AI Auto BD Starter Kit
+# AI Auto BD Starter Kit v0.3
 
 **Languages:** [English](README.md) | [繁體中文](README.zh-TW.md)
 
@@ -171,3 +171,8 @@ Do not add real tokens, cookies, OAuth refresh tokens, private Sheet IDs, or cli
 ## Commercial Services / Consulting Note
 
 FlyPig AI can help adapt this starter into a private, compliant, review-first BD workflow for a specific market, team, or client operation. Typical consulting work includes workflow design, scoring rules, review dashboards, CRM or spreadsheet integration, reporting, and responsible-use controls.
+
+Contact:
+
+- Website: http://flypigai.icareu.tw/
+- Email: flypig@icareu.tw

@@ -1,4 +1,4 @@
-# AI Auto BD Starter Kit
+# AI Auto BD Starter Kit v0.3
 
 **語言版本:** [English](README.md) | [繁體中文](README.zh-TW.md)
 
@@ -167,3 +167,8 @@ npm run lead:score
 ## 商業服務 / 顧問說明
 
 FlyPig AI 可協助將此 starter kit 改造成私有、合規、review-first 的 BD workflow，包含流程設計、scoring rules、review dashboard、CRM 或 spreadsheet integration、reporting 與 responsible-use controls。
+
+聯繫方式：
+
+- Website: http://flypigai.icareu.tw/
+- Email: flypig@icareu.tw
