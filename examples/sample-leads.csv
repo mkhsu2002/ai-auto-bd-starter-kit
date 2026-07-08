@@ -1,0 +1,7 @@
+lead_id,business_name,industry,region,website_url,public_email,weak_website,local_service_business,chain_store,excluded_industry,no_public_contact,notes
+L-001,Sample Roof Repair,local contractors,Sample City,https://roof.example,hello@roof.example,yes,yes,no,no,no,Local service business with basic website
+L-002,Corner Book Shop,independent retailers,Sample City,https://books.example,contact@books.example,no,yes,no,no,no,Independent retailer with clear contact details
+L-003,Metro Clinic,medical,Sample City,https://clinic.example,info@clinic.example,no,yes,no,yes,no,Excluded regulated category
+L-004,Regional Utility Office,public utilities,Sample City,https://utility.example,,no,no,no,yes,yes,Excluded public utility
+L-005,Sample Roof Repair Duplicate,local contractors,Sample City,https://roof.example,hello@roof.example,yes,yes,no,no,no,Duplicate of L-001 for dedupe demonstration
+L-006,Quiet Design Practice,professional services,Sample City,,studio@design.example,yes,yes,no,no,no,No website but public contact exists

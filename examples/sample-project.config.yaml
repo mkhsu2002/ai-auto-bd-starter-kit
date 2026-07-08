@@ -1,0 +1,62 @@
+project:
+  name: "Sample Local Service Outreach"
+  slug: "sample-local-service"
+  owner_name: "Example Owner"
+  owner_email: "owner@example.com"
+
+brand:
+  name: "Example Digital Studio"
+  website_url: "https://example.com"
+  service_name: "Website Audit"
+  cta_url: "https://example.com/audit"
+
+market:
+  country: "Example Country"
+  regions:
+    - "Sample City"
+  timezone: "UTC"
+  language: "en"
+  currency: "USD"
+
+offer:
+  primary_offer: "Free website audit"
+  value_proposition: "Help local businesses identify website and search visibility gaps."
+  call_to_action: "Request a free audit"
+
+target_segments:
+  priority_industries:
+    - "local contractors"
+    - "independent retailers"
+    - "professional services"
+  excluded_industries:
+    - "medical"
+    - "government"
+    - "public utilities"
+    - "regulated products"
+
+lead_scoring:
+  rules:
+    has_public_email: 20
+    has_website: 10
+    weak_website: 20
+    local_service_business: 15
+    has_clear_region: 10
+    chain_store: -20
+    no_public_contact: -20
+  thresholds:
+    ready_to_review: 60
+    hold: 40
+
+outreach_sequence:
+  steps:
+    - step: "day1"
+      delay_days: 0
+      template: "intro"
+    - step: "day4"
+      delay_days: 3
+      template: "followup"
+  stop_on:
+    - "reply"
+    - "bounce"
+    - "unsubscribe"
+    - "manual_stop"
