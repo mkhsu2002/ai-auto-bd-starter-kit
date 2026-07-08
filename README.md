@@ -154,6 +154,10 @@ Always:
 
 This starter kit does not send emails by default.
 
+## License
+
+This project is licensed under the Apache License 2.0. See [LICENSE](LICENSE) for the full license text, including copyright, patent grant, redistribution, warranty disclaimer, and limitation of liability terms.
+
 ## How To Adapt This Into A Private Client Project
 
 For a private client implementation, keep this public repo as the conceptual starter and create a separate private repo for:

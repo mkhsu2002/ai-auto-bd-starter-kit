@@ -150,6 +150,10 @@ npm run lead:score
 
 此 starter kit 預設不會寄送 email。
 
+## 授權條款
+
+本專案採用 Apache License 2.0 授權。完整條文請見 [LICENSE](LICENSE)，其中包含著作權、專利授權、再散布條件、免責聲明與責任限制等條款。
+
 ## 如何改造成私有客戶專案
 
 請把此 repo 保持為公開概念範例，另建私有 repo 放置：
