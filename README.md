@@ -213,21 +213,27 @@ Contact:
 
 Enterprise customization:
 
+If you want this starter kit to grow into a private, review-first workflow for a real team, FlyPig AI can help with the serious parts while keeping the spreadsheets reasonably calm.
+
 - https://flypigai.icareu.tw/
 
 ## Support And Related Projects
 
 Buy me a coffee:
 
+If this starter saves you a few hours, a coffee helps keep the next tiny-but-useful tool awake.
+
 - https://buymeacoffee.com/mkhsu2002w
 
 Recommended repositories:
 
-- [mkhsu2002/hotgits](https://github.com/mkhsu2002/hotgits)
-- [mkhsu2002/EC-SEO-Booster](https://github.com/mkhsu2002/EC-SEO-Booster)
-- [mkhsu2002/openclaw-agent-feeds](https://github.com/mkhsu2002/openclaw-agent-feeds)
-- [mkhsu2002/ai-content-operations-skill](https://github.com/mkhsu2002/ai-content-operations-skill)
+- [hotgits](https://github.com/mkhsu2002/hotgits): GitHub trend tracker with AI-assisted project insights.
+- [EC-SEO-Booster](https://github.com/mkhsu2002/EC-SEO-Booster): AI workflow for e-commerce market research, landing page prompts, and SEO strategy.
+- [openclaw-agent-feeds](https://github.com/mkhsu2002/openclaw-agent-feeds): Standardized agent feeds and automation instruction sets for OpenClaw.
+- [ai-content-operations-skill](https://github.com/mkhsu2002/ai-content-operations-skill): Agent-readable skill for content publishing, quality gates, Sheets tracking, and weekly governance.
 
 Follow M.K. for notes on future AI civilization:
+
+For longer thoughts on AI, tools, and where this whole strange productivity arc might be heading, follow M.K. over here.
 
 - https://mkhsu.icareu.tw/
