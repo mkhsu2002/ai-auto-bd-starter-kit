@@ -210,3 +210,24 @@ Contact:
 
 - Website: http://flypigai.icareu.tw/
 - Email: flypig@icareu.tw
+
+Enterprise customization:
+
+- https://flypigai.icareu.tw/
+
+## Support And Related Projects
+
+Buy me a coffee:
+
+- https://buymeacoffee.com/mkhsu2002w
+
+Recommended repositories:
+
+- [mkhsu2002/hotgits](https://github.com/mkhsu2002/hotgits)
+- [mkhsu2002/EC-SEO-Booster](https://github.com/mkhsu2002/EC-SEO-Booster)
+- [mkhsu2002/openclaw-agent-feeds](https://github.com/mkhsu2002/openclaw-agent-feeds)
+- [mkhsu2002/ai-content-operations-skill](https://github.com/mkhsu2002/ai-content-operations-skill)
+
+Follow M.K. for notes on future AI civilization:
+
+- https://mkhsu.icareu.tw/
